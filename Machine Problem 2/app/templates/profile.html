@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<meta charset="UTF-8">
+	<title>Student Database</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/open-iconic-bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+
+
+
+	<section class="cover">
+      	<div class="container">
+	        <div class="row vh-100 align-items-center text-center">
+	            <div class="col-sm">
+	            	<div class="text">
+	            		<h1 class="probootstrap-heading text-white mb-4"></h1><img src="{{ url_for('static', filename='images/search.png') }}" alt="Home"</a></h1>
+	            	</div>
+	        	</div>
+	      	</div>
+	    </div>
+	</section>
+
+	<div class="tablewrap">
+		<table id="display">
+			<thead>
+	            <tr>
+	               <th colspan = "6" align="center"><b>Student Database</b></th>
+	            </tr>
+	         </thead>
+			<tr>
+				<th>Id Number</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Course</th>
+				<th>Year Level</th>
+				<th>Gender</th>
+			</tr>
+			<tbody>
+			{% for user in data %}
+			<tr>
+				<td>{{user[0]}}</td>
+				<td>{{user[1]}}</td>
+				<td>{{user[2]}}</td>
+				<td>{{user[3]}}</td>
+				<td>{{user[4]}}</td>
+				<td>{{user[5]}}</td>
+			</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	</div>
+
+	<div style="width:10%; margin:0 auto; padding-top: 200px;">
+		<a href="/" class="btn btn-primary mr-2 mb-2">Go Back</a>
+	</div>
+
+</body>
+</html>
