@@ -1,2 +1,3 @@
-# CSC151
-# CSC151
+# Machine Problem 2
+
+Student DB
