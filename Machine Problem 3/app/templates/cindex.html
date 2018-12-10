@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<meta charset="UTF-8">
+	<title>Student Database</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/open-iconic-bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style2.css') }}">
+
+</head>
+<body>
+
+
+
+	<section class="cover">
+      	<div class="container">
+	        <div class="row vh-100 align-items-center text-center">
+	            <div class="col-sm">
+	            	<div class="text">
+	            		<h1 class="probootstrap-heading text-white mb-4"></h1><img src="{{ url_for('static', filename='images/studentdb.png') }}" alt="Home"</a></h1>
+	            		<br>
+	            		<br>
+	            		<a href="/" class="btn btn-primary mr-2 mb-2">Manage Students</a>
+	            		<br>
+	            		<a href="/course-add" class="btn btn-primary mr-2 mb-2">Add Course</a>
+						<a href="/course-delete" class="btn btn-primary mr-2 mb-2">Delete Course </a>
+						<a href="/course-update" class="btn btn-primary mr-2 mb-2">Update Course </a>
+						<a href="/course-search" class="btn btn-primary mr-2 mb-2">Search Course </a><br>
+	            	</div>
+	        	</div>
+	      	</div>
+	    </div>
+	</section>
+
+	<div class="tablewrap">
+		<table id="display">
+			<thead>
+	            <tr>
+	               <th colspan = "6" align="center"><b>Student Database</b></th>
+	            </tr>
+	         </thead>
+			<tr>
+				<th>Course ID</th>
+				<th>Course Title</th>
+				<th>College</th>
+			</tr>
+			<tbody>
+			{% for user in data %}
+			<tr>
+				<td>{{user[0]}}</td>
+				<td>{{user[1]}}</td>
+				<td>{{user[2]}}</td>
+			</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	</div>
+
+</body>
+</html>

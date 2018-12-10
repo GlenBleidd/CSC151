@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Update a Student</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/open-iconic-bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+
+	<section class="cover">
+      	<div class="container">
+	        <div class="row vh-100 align-items-center text-center">
+	            <div class="col-sm">
+	            	<div class="text">
+	            		<h1 class="probootstrap-heading text-white mb-4"></h1><img src="{{ url_for('static', filename='images/update.png') }}" alt="Home"</a></h1>					
+	            	</div>
+	        	</div>
+	      	</div>
+	    </div>
+	</section>
+	<div class="formwrap">
+	    <form action="/update" method="POST">
+	        {{form.hidden_tag()}}
+	        
+	        <div class="row">
+	        	{{form.new_id(class="input100", placeholder="Enter ID Number")}}
+		        <ul>
+					{% for error in form.new_id.errors %}
+					 	<li style = "color:red;"> {{ error }}</li>
+					{% endfor %}
+				</ul>
+			</div>
+
+			<br>
+
+			<div class="row">
+	        	{{form.new_fname(class="input100", placeholder="Update First Number")}}
+	         	<ul>
+					{% for error in form.new_fname.errors %}
+					 	<li style = "color:red;"> {{ error }}</li>
+					{% endfor %}
+			 	</ul>
+	        
+	        	{{form.new_lname(class="input100", placeholder="Update Last Number")}}
+		         <ul>
+					{% for error in form.new_lname.errors %}
+					 	<li style = "color:red;"> {{ error }}</li>
+					{% endfor %}
+				 </ul>
+			</div>
+
+			<div class="row">
+				{{form.new_course(class="input100", placeholder="Update Course")}}
+	     		<ul>
+				 	{% for error in form.new_course.errors %}
+				 		<li style = "color:red;"> {{ error }}</li>
+				 	{% endfor %}
+			 	</ul>
+
+	        	{{form.new_year(class="input100", placeholder="Update Year Level")}}
+		        <ul>
+					{% for error in form.new_year.errors %}
+						<li style = "color:red;"> {{ error }}</li>
+					{% endfor %}
+				</ul>
+			</div>
+
+			<div class="row">
+	        	{{form.new_gender(class="input100", placeholder="Update Gender")}}
+		        <ul>
+					{% for error in form.new_gender.errors %}
+					 	<li style = "color:red;"> {{ error }}</li>
+					{% endfor %}
+				</ul>
+			
+	        	{{form.submit(class="btn2 btn2-primary mr-2 mb-2")}}
+	    	</div>
+	    </form>
+ 	</div>
+
+ 	<div style="width:10%; margin:0 auto;">
+		<a href="/" class="btn btn-primary mr-2 mb-2">Go Back</a>
+	</div>
+	
+</body>
+</html>

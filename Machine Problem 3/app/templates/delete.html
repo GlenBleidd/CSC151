@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Deleting a Student</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/open-iconic-bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+	<section class="cover">
+      	<div class="container">
+	        <div class="row vh-100 align-items-center text-center">
+	            <div class="col-sm">
+	            	<div class="text">
+	            		<h1 class="probootstrap-heading text-white mb-4"></h1><img src="{{ url_for('static', filename='images/delete.png') }}" alt="Home"</a></h1>
+	            		<br>
+					
+	            	</div>
+	        	</div>
+	      	</div>
+	    </div>
+	</section>
+
+	<div class="formwrap">
+     	<form action="/delete" method="POST">
+     		<div class="row">
+			{{form.hidden_tag()}}
+			{{form.del_id(class="input100-2", placeholder="ID Number")}}<BR>
+				 <ul>
+					 {% for error in form.del_id.errors %}
+					 	<li style = "color:red;"> {{ error }}</li>
+					 {% endfor %}
+			 	</ul>
+
+				{{form.submit(class="btn2 btn2-primary mr-2 mb-2")}}
+			</div>
+		</form>
+	</div>
+
+	<div style="width:10%; margin:0 auto;">
+		<a href="/" class="btn btn-primary mr-2 mb-2">Go Back</a>
+	</div>
+
+</body>
+</html>

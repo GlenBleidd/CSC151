@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="UTF-8">
+	<title>Adding Course</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/open-iconic-bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style2.css') }}">
+
+</head>
+<body>
+
+	<section class="cover">
+      	<div class="container">
+	        <div class="row vh-100 align-items-center text-center">
+	            <div class="col-sm">
+	            	<div class="text">
+	            		<h1 class="probootstrap-heading text-white mb-4"></h1><img src="{{ url_for('static', filename='images/add.png') }}" alt="Home"</a></h1>					
+	            	</div>
+	        	</div>
+	      	</div>
+	    </div>
+	</section>
+
+	<div class="formwrap">
+		<form action="/course-add" method="POST">
+			{{form.hidden_tag()}}
+
+			<div class="row">
+				{{form.c_id(class="input100", placeholder="Course ID")}}<BR>
+				<ul>
+					{% for error in form.c_id.errors %}
+						<li style = "color:red;"> {{ error }}</li>
+					{% endfor %}
+				</ul>
+			</div>
+			<br>
+			<div class="row">
+			{{form.c_name(class="input100", placeholder="Course Title")}}<BR>
+			<ul>
+				 {% for error in form.c_name.errors %}
+				 	<li style = "color:red;"> {{ error }}</li>
+				 {% endfor %}
+			 </ul>
+
+			{{form.c_college(class="input100", placeholder="College")}}
+			<ul>
+				 {% for error in form.c_college.errors %}
+				 	<li style = "color:red;"> {{ error }}</li>
+				 {% endfor %}
+			 </ul>
+			</div>
+
+			<div class="row">
+			{{form.submit(class="btn2 btn2-primary mr-2 mb-2")}}
+			</div>
+		</form>
+	</div>
+
+	<div style="width:10%; margin:0 auto;">
+		<a href="/" class="btn btn-primary mr-2 mb-2">Go Back</a>
+	</div>
+	
+</body>
+</html>
+
+
+
+
