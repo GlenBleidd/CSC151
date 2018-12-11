@@ -1,12 +1,12 @@
 from flask_wtf import Form
-from wtforms import StringField, SubmitField, IntegerField
+from wtforms import StringField, SubmitField, IntegerField, RadioField
 from wtforms.validators import InputRequired
 
 class UserForm(Form):
     id_num = StringField('Id No',  validators = [InputRequired("Id Number is Required")])
     f_name = StringField('First Name',  validators = [InputRequired("Please Input First Name")])
     l_name = StringField('Last Name',  validators = [InputRequired("Please Input Last Name")])
-    course = StringField('Course',  validators = [InputRequired("Please Input Student Course")])
+    course = StringField('Choose Course', validators = [InputRequired("Please Select Student Course")])
     year = IntegerField('Year',  validators = [InputRequired("Please Input Year Level")])
     gender = StringField('Gender',  validators = [InputRequired("Please Input Gender")])
     submit = SubmitField("Submit")
@@ -42,7 +42,6 @@ class DeleteCourse(Form):
 
 class UpdateCourse(Form):
     new_cid = StringField('New Course Id', validators = [InputRequired("Course Id is Required")])
-    new_ucid = StringField('New Course Id', validators = [InputRequired("New Course Id is Required")])
     new_cname = StringField('New Course Title', validators = [InputRequired("Please Input New Course Title")])
     new_ccollege = StringField('New College', validators = [InputRequired("Please Input New College")])
     submit = SubmitField("Submit")

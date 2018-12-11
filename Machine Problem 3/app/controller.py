@@ -12,12 +12,13 @@ def index():
 @app.route('/register', methods=['POST', 'GET'])
 def register():
     form = UserForm(request.form)
+    course = models.Course.all()
     if request.method == 'POST' and form.validate():
         user = models.Users(id_num=form.id_num.data, f_name=form.f_name.data, l_name=form.l_name.data, course=form.course.data, year=form.year.data, gender=form.gender.data)
         user.add()
         return redirect('/')
     else:
-        return render_template('add.html', form=form)
+        return render_template('add.html', form=form, course=course)
 
 @app.route('/delete', methods=['POST', 'GET'])
 def delete():
@@ -91,7 +92,7 @@ def searchcourse():
     form = SearchCourse(request.form)
     if request.method == 'POST' and form.validate():
         course = models.Course(c_id = form.search_cid.data)
-        course = user.csearch()
-        return render_template('profile.html', data = data)
+        course = course.csearch()
+        return render_template('cprofile.html', data = course)
     else:
-        return render_template('search.html', form = form)
+        return render_template('csearch.html', form = form)

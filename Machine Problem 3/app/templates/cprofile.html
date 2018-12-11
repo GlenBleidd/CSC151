@@ -18,15 +18,7 @@
 	        <div class="row vh-100 align-items-center text-center">
 	            <div class="col-sm">
 	            	<div class="text">
-	            		<h1 class="probootstrap-heading text-white mb-4"></h1><img src="{{ url_for('static', filename='images/studentdb.png') }}" alt="Home"</a></h1>
-	            		<br>
-	            		<br>
-	            		<a href="/" class="btn btn-primary mr-2 mb-2">Manage Students</a>
-	            		<br>
-	            		<a href="/course-add" class="btn btn-primary mr-2 mb-2">Add Course</a>
-						<a href="/course-delete" class="btn btn-primary mr-2 mb-2">Delete Course </a>
-						<a href="/course-update" class="btn btn-primary mr-2 mb-2">Update Course </a>
-						<a href="/course-search" class="btn btn-primary mr-2 mb-2">Search Course </a><br>
+	            		<h1 class="probootstrap-heading text-white mb-4"></h1><img src="{{ url_for('static', filename='images/search.png') }}" alt="Home"</a></h1>
 	            	</div>
 	        	</div>
 	      	</div>
@@ -46,15 +38,19 @@
 				<th>College</th>
 			</tr>
 			<tbody>
-			{% for user in data %}
+			{% for course in data %}
 			<tr>
-				<td>{{user[0]}}</td>
-				<td>{{user[1]}}</td>
-				<td>{{user[2]}}</td>
+				<td>{{course[0]}}</td>
+				<td>{{course[1]}}</td>
+				<td>{{course[2]}}</td>
 			</tr>
 			{% endfor %}
 			</tbody>
 		</table>
+	</div>
+
+	<div style="width:10%; margin:0 auto; padding-top: 200px;">
+		<a href="/" class="btn btn-primary mr-2 mb-2">Go Back</a>
 	</div>
 
 </body>
