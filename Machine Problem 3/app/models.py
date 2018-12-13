@@ -54,6 +54,7 @@ class Course(object):
         self.c_name = c_name
         self.c_college = c_college
 
+        
     def cadd(self):
         cursor = psql.connection.cursor()
 

@@ -12,13 +12,13 @@ def index():
 @app.route('/register', methods=['POST', 'GET'])
 def register():
     form = UserForm(request.form)
-    course = models.Course.all()
+    form.course.choices = [(course[0], course[1]) for course in models.Course.all()]
     if request.method == 'POST' and form.validate():
         user = models.Users(id_num=form.id_num.data, f_name=form.f_name.data, l_name=form.l_name.data, course=form.course.data, year=form.year.data, gender=form.gender.data)
         user.add()
         return redirect('/')
     else:
-        return render_template('add.html', form=form, course=course)
+        return render_template('add.html', form=form)
 
 @app.route('/delete', methods=['POST', 'GET'])
 def delete():
